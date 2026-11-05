@@ -1,0 +1,7 @@
+@using HotelManagement.Application.DTOs.Rooms
+@using HotelManagement.Domain.Entities
+@model IReadOnlyCollection<RoomDto>
+@* @{ ViewData["Title"] = "Phòng và đặt phòng"; var currentStatus = (RoomStatus?)ViewBag.Status; }
+<div class="page-heading"><div><p class="eyebrow">VẬN HÀNH</p><h1>Phòng và đặt phòng</h1><p class="subheading">Tra cứu và theo dõi tình trạng phòng theo thời gian thực.</p></div><button class="button primary" type="button">Tạo đặt phòng</button></div>
+<form class="filter-bar" method="get"><label>Tìm phòng<input name="keyword" value="@ViewBag.Keyword" placeholder="Số phòng hoặc hạng phòng" /></label><label>Trạng thái<select name="status"><option value="">Tất cả</option>@foreach (var item in Enum.GetValues<RoomStatus>()) { <option value="@item" selected="@(currentStatus == item)">@item</option> }</select></label><button class="button secondary" type="submit">Lọc kết quả</button></form>
+<section class="content-panel"><div class="panel-heading"><div><h2>Danh sách phòng</h2><p>@Model.Count phòng phù hợp điều kiện tìm kiếm.</p></div><span class="result-count">@Model.Count kết quả</span></div><div class="room-table" role="table"><div class="table-row table-head" role="row"><span>Phòng</span><span>Hạng phòng</span><span>Trạng thái</span><span>Giá đêm</span></div>@foreach (var room in Model) { <div class="table-row" role="row"><strong>@room.Number</strong><span>@room.Category</span><span><i class="status @room.Status.ToLowerInvariant()"></i>@room.Status</span><span>@room.NightlyRate.ToString("N0") VND</span></div> }</div></section> *@

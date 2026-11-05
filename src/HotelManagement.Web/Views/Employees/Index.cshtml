@@ -1,0 +1,5 @@
+@using HotelManagement.Application.DTOs.Employees
+@model IReadOnlyCollection<EmployeeDto>
+@* @{ ViewData["Title"] = "Nhan vien"; }
+<div class="page-heading"><div><p class="eyebrow">HE THONG</p><h1>Quan ly nhan vien</h1><p class="subheading">Thong tin tai khoan va vai tro cua doi ngu van hanh.</p></div><button class="button primary" type="button">Them nhan vien</button></div>
+<section class="content-panel"><div class="panel-heading"><div><h2>Danh sach nhan vien</h2><p>@Model.Count tai khoan trong he thong.</p></div></div><div class="employee-list">@foreach (var employee in Model) { <article class="employee-row"><span class="person-initial">@employee.FullName.Substring(0, 1)</span><div><strong>@employee.FullName</strong><p>@employee.Email</p></div><div><span class="field-label">CHUC VU</span><strong>@employee.JobTitle</strong></div><div><span class="field-label">VAI TRO</span><strong>@employee.RoleName</strong></div><span class="pill @(employee.IsActive ? "success" : "inactive")">@(employee.IsActive ? "Dang hoat dong" : "Tam khoa")</span></article> }</div></section> *@

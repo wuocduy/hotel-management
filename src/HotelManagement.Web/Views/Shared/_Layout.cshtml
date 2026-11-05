@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Aurora Hotel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" asp-controller="Dashboard" asp-action="Index"><span class="brand-mark">A</span><span>Aurora<br /><small>Hotel manager</small></span></a>
+            <nav aria-label="Điều hướng chính">
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "active" : "")" asp-controller="Dashboard" asp-action="Index"><span class="nav-dot"></span>Tổng quan</a>
+                <span class="nav-label">VẬN HÀNH</span>
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Rooms" ? "active" : "")" asp-controller="Rooms" asp-action="Index"><span class="nav-dot"></span>Phòng và đặt phòng</a>
+                <a class="nav-link muted" href="#"><span class="nav-dot"></span>Khách hàng</a>
+                <span class="nav-label">HỆ THỐNG</span>
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Employees" ? "active" : "")" asp-controller="Employees" asp-action="Index"><span class="nav-dot"></span>Nhân viên</a>
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Roles" ? "active" : "")" asp-controller="Roles" asp-action="Index"><span class="nav-dot"></span>Phân quyền</a>
+                <a class="nav-link muted" href="#"><span class="nav-dot"></span>Cài đặt</a>
+            </nav>
+            <div class="sidebar-footer"><span class="online-indicator"></span>Hệ thống đang hoạt động<br /><small>v0.1.0</small></div>
+        </aside>
+        <main class="main-content">
+            <header class="topbar"><div class="property-switcher"><span class="hotel-dot"></span><span><strong>Aurora Hotel</strong><small>Đà Nẵng, Việt Nam</small></span></div><div class="topbar-actions"><a class="help-link" href="#">Trợ giúp</a><div class="profile"><span class="avatar">@((User.Identity?.Name ?? "?").Substring(0, 1).ToUpperInvariant())</span><span><strong>@User.Identity?.Name</strong><small>Quản lý</small></span></div><form asp-controller="Account" asp-action="Logout" method="post"><button class="logout-button" type="submit">Đăng xuất</button></form></div></header>
+            <div class="page-content">@RenderBody()</div>
+        </main>
+    </div>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

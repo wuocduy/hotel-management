@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Aurora Hotel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="auth-page">
+    <main class="auth-shell">
+        <section class="auth-intro">
+            <a class="auth-brand" asp-controller="Account" asp-action="Login"><span>A</span>Aurora Hotel</a>
+            <div class="auth-intro-copy"><p>PROPERTY MANAGEMENT</p><h1>Vận hành khách sạn, gọn trong một nơi.</h1><span>Theo dõi phòng, nhân sự và trạng thái lưu trú với hệ thống quản lý Aurora.</span></div>
+            <small>© 2026 Aurora Hotel Manager</small>
+        </section>
+        <section class="auth-content">@RenderBody()</section>
+    </main>
+</body>
+</html>
