@@ -1,0 +1,17 @@
+@{ Layout = "_AuthLayout"; ViewData["Title"] = "Đăng ký"; }
+<div class="auth-card">
+    <div class="auth-heading"><p>BẮT ĐẦU VỚI AURORA</p><h1>Tạo tài khoản</h1><span>Thiết lập giao diện tài khoản quản lý khách sạn.</span></div>
+    <form class="auth-form" data-demo-form data-demo-message="Đây là giao diện demo. Tài khoản chưa được tạo vì chưa kết nối API hoặc cơ sở dữ liệu.">
+        <label for="register-name">Họ và tên</label>
+        <input id="register-name" name="fullName" autocomplete="name" placeholder="Nguyễn Minh Anh" required />
+        <label for="register-email">Email</label>
+        <input id="register-email" name="email" type="email" autocomplete="email" placeholder="name@hotel.com" required />
+        <label for="register-password">Mật khẩu</label>
+        <input id="register-password" name="password" type="password" autocomplete="new-password" placeholder="Tối thiểu 8 ký tự" minlength="8" required />
+        <label for="register-confirm-password">Xác nhận mật khẩu</label>
+        <input id="register-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Nhập lại mật khẩu" minlength="8" required />
+        <button class="auth-submit" type="submit">Tạo tài khoản</button>
+        <p class="demo-message" hidden role="status"></p>
+    </form>
+    <p class="auth-switch">Đã có tài khoản? <a asp-controller="Auth" asp-action="Login">Đăng nhập</a></p>
+</div>

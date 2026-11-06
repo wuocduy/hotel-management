@@ -1,66 +1,45 @@
-# HotelManagement – Hệ thống quản lý khách sạn
+# HotelManagement
 
-**HotelManagement** là dự án khởi tạo ứng dụng quản lý khách sạn được xây dựng trên nền tảng **ASP.NET Core MVC**, áp dụng kiến trúc **Clean Architecture** nhằm phân tách rõ ràng các tầng xử lý nghiệp vụ, truy cập dữ liệu và giao diện người dùng.
+Website quan ly khach san duoc xay dung bang ASP.NET Core MVC. Dashboard dang dung du lieu mau de phuc vu giao dien va se ket noi SQL Server o giai doan sau.
 
-Dự án được phát triển dựa trên các màn hình thiết kế từ wireframe, tập trung vào những chức năng quản lý chính như: **Tổng quan (Dashboard), Quản lý phòng, Quản lý nhân viên và Phân quyền người dùng**. Giao diện sử dụng Razor Views kết hợp CSS để xây dựng bố cục trực quan, hiện đại và dễ dàng mở rộng.
-
-## Kiến trúc dự án
-
-Dự án được tổ chức thành các tầng độc lập với trách nhiệm cụ thể:
+## Cau truc de doc
 
 ```text
 src/
-├── HotelManagement.Domain/
-│   └── Chứa Entity và các quy tắc nghiệp vụ cốt lõi.
-│
-├── HotelManagement.Application/
-│   └── Chứa Use Case, DTO, ViewModel và Repository Interfaces.
-│
-├── HotelManagement.Infrastructure/
-│   └── Triển khai Repository và xử lý truy cập dữ liệu.
-│
-└── HotelManagement.Web/
-    └── Chứa Controller, Razor Views, CSS và cấu hình ứng dụng.
+  HotelManagement.Domain/
+    Entities/                    # Room, Employee, Role va quy tac cot loi
 
-tests/
-└── HotelManagement.Application.Tests/
-    └── Chứa các bài kiểm thử cho tầng Application.
+  HotelManagement.Application/
+    Abstractions/                # Interface repository
+    DTOs/                        # Doi tuong truyen du lieu, chia theo Rooms/Employees/Roles
+    Services/                    # Xu ly use case Dashboard, Rooms, Employees, Roles
+    ViewModels/                  # Model chi phuc vu mot man hinh, vi du Dashboard
+
+  HotelManagement.Infrastructure/
+    Persistence/                 # Du lieu mau in-memory; se thay bang EF Core/SQL Server
+
+  HotelManagement.Web/
+    Controllers/                 # Dieu huong trang MVC
+    Views/
+      Auth/                      # Giao dien Dang nhap, Dang ky (chi front-end)
+      Dashboard/ Rooms/ ...      # Giao dien tung chuc nang
+      Shared/                    # Layout dung chung
+    wwwroot/
+      css/                       # Style giao dien
+      js/                        # JavaScript giao dien
 ```
 
-### Nguyên tắc phụ thuộc
+## Giao dien dang nhap va dang ky
 
-Dự án tuân thủ nguyên tắc Dependency Inversion của Clean Architecture:
+`/Auth/Login` va `/Auth/Register` la giao dien front-end. Form co validation HTML/JavaScript co ban, khong gui du lieu, khong luu tai khoan va khong co authentication backend.
 
-- **Web → Application:** Tầng giao diện gọi các chức năng nghiệp vụ thông qua Application.
-- **Infrastructure → Application:** Tầng hạ tầng triển khai các abstraction được định nghĩa trong Application.
-- **Application → Domain:** Tầng Application sử dụng các Entity và quy tắc nghiệp vụ từ Domain.
-- **Domain:** Là tầng trung tâm, độc lập với framework, giao diện và công nghệ lưu trữ dữ liệu.
+Khi can lam backend, tao feature `Authentication` trong Application va Infrastructure, sau do ket noi form voi API hoac action MVC.
 
-## Định hướng phát triển cơ sở dữ liệu
-
-Hiện tại, dự án sử dụng **In-Memory Repository** để cung cấp dữ liệu mẫu phục vụ quá trình xây dựng và kiểm thử giao diện. Trong các giai đoạn tiếp theo, hệ thống có thể chuyển sang SQL Server thông qua Entity Framework Core.
-
-Các bước triển khai dự kiến:
-
-1. Bổ sung các package `Microsoft.EntityFrameworkCore.SqlServer` và `Microsoft.EntityFrameworkCore.Tools` vào Infrastructure.
-2. Xây dựng `HotelDbContext` để quản lý kết nối và ánh xạ các Entity bằng Fluent API.
-3. Triển khai các Repository sử dụng Entity Framework Core.
-4. Cấu hình `AddDbContext` và thay thế In-Memory Repository bằng Repository kết nối SQL Server.
-5. Tạo Migration và cập nhật cấu trúc cơ sở dữ liệu bằng Entity Framework Core.
-
-## Hướng dẫn chạy dự án
-
-Yêu cầu môi trường: .NET SDK tương thích với Target Framework được cấu hình trong project.
-
-Mở Terminal tại thư mục gốc dự án và thực hiện:
+## Chay du an
 
 ```powershell
 dotnet restore
 dotnet run --project src/HotelManagement.Web
 ```
 
-## Trạng thái hiện tại
-
-HotelManagement đang ở giai đoạn xây dựng nền tảng ban đầu, với mục tiêu hoàn thiện kiến trúc phần mềm, giao diện quản trị và các chức năng quản lý cốt lõi.
-
-Việc sử dụng dữ liệu mẫu được tách biệt trong tầng Infrastructure giúp quá trình phát triển giao diện và nghiệp vụ không phụ thuộc trực tiếp vào một hệ quản trị cơ sở dữ liệu cụ thể, đồng thời tạo điều kiện thuận lợi cho việc tích hợp SQL Server trong tương lai.
+Mo trang Dashboard tai dia chi ma terminal hien thi. Form demo nam tai `/Auth/Login` va `/Auth/Register`.

@@ -26,7 +26,7 @@
             <div class="sidebar-footer"><span class="online-indicator"></span>Hệ thống đang hoạt động<br /><small>v0.1.0</small></div>
         </aside>
         <main class="main-content">
-            <header class="topbar"><div class="property-switcher"><span class="hotel-dot"></span><span><strong>Aurora Hotel</strong><small>Đà Nẵng, Việt Nam</small></span></div><div class="topbar-actions"><a class="help-link" href="#">Trợ giúp</a><div class="profile"><span class="avatar">@((User.Identity?.Name ?? "?").Substring(0, 1).ToUpperInvariant())</span><span><strong>@User.Identity?.Name</strong><small>Quản lý</small></span></div><form asp-controller="Account" asp-action="Logout" method="post"><button class="logout-button" type="submit">Đăng xuất</button></form></div></header>
+            <header class="topbar"><div class="property-switcher"><span class="hotel-dot"></span><span><strong>Aurora Hotel</strong><small>Đà Nẵng, Việt Nam</small></span></div><div class="topbar-actions"><a class="help-link" href="#">Trợ giúp</a><a class="topbar-login" asp-controller="Auth" asp-action="Login">Đăng nhập</a></div></header>
             <div class="page-content">@RenderBody()</div>
         </main>
     </div>

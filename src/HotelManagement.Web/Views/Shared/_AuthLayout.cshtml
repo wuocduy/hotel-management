@@ -12,11 +12,12 @@
 <body class="auth-page">
     <main class="auth-shell">
         <section class="auth-intro">
-            <a class="auth-brand" asp-controller="Account" asp-action="Login"><span>A</span>Aurora Hotel</a>
+            <a class="auth-brand" asp-controller="Auth" asp-action="Login"><span>A</span>Aurora Hotel</a>
             <div class="auth-intro-copy"><p>PROPERTY MANAGEMENT</p><h1>Vận hành khách sạn, gọn trong một nơi.</h1><span>Theo dõi phòng, nhân sự và trạng thái lưu trú với hệ thống quản lý Aurora.</span></div>
             <small>© 2026 Aurora Hotel Manager</small>
         </section>
         <section class="auth-content">@RenderBody()</section>
     </main>
+    <script src="~/js/auth-demo.js" asp-append-version="true"></script>
 </body>
 </html>
