@@ -5,13 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagement.Domain", "src\HotelManagement.Domain\HotelManagement.Domain.csproj", "{9EB377F4-8D47-4678-93DE-8F27A0E1A041}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "src\Domain\Domain.csproj", "{9EB377F4-8D47-4678-93DE-8F27A0E1A041}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagement.Application", "src\HotelManagement.Application\HotelManagement.Application.csproj", "{A43F8F11-A1F6-4D9C-B1A8-88AE98BBD9C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Application\Application.csproj", "{A43F8F11-A1F6-4D9C-B1A8-88AE98BBD9C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagement.Infrastructure", "src\HotelManagement.Infrastructure\HotelManagement.Infrastructure.csproj", "{053364DC-7489-4C4A-A722-7C345CA02716}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{053364DC-7489-4C4A-A722-7C345CA02716}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagement.Web", "src\HotelManagement.Web\HotelManagement.Web.csproj", "{BCADCF42-E941-473A-B952-6C8D28F886BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "src\Api\Api.csproj", "{BCADCF42-E941-473A-B952-6C8D28F886BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagement.Application.Tests", "tests\HotelManagement.Application.Tests\HotelManagement.Application.Tests.csproj", "{89973E64-ABD6-41AB-8A0F-522E1DBE83F6}"
 EndProject

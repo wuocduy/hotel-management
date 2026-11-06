@@ -6,19 +6,19 @@ Website quan ly khach san duoc xay dung bang ASP.NET Core MVC. Dashboard dang du
 
 ```text
 src/
-  HotelManagement.Domain/
+  Domain/
     Entities/                    # Room, Employee, Role va quy tac cot loi
 
-  HotelManagement.Application/
+  Application/
     Abstractions/                # Interface repository
     DTOs/                        # Doi tuong truyen du lieu, chia theo Rooms/Employees/Roles
     Services/                    # Xu ly use case Dashboard, Rooms, Employees, Roles
     ViewModels/                  # Model chi phuc vu mot man hinh, vi du Dashboard
 
-  HotelManagement.Infrastructure/
+  Infrastructure/
     Persistence/                 # Du lieu mau in-memory; se thay bang EF Core/SQL Server
 
-  HotelManagement.Web/
+  Api/
     Controllers/                 # Dieu huong trang MVC
     Views/
       Auth/                      # Giao dien Dang nhap, Dang ky (chi front-end)
@@ -39,7 +39,7 @@ Khi can lam backend, tao feature `Authentication` trong Application va Infrastru
 
 ```powershell
 dotnet restore
-dotnet run --project src/HotelManagement.Web
+dotnet run --project src/Api
 ```
 
 Mo trang Dashboard tai dia chi ma terminal hien thi. Form demo nam tai `/Auth/Login` va `/Auth/Register`.
